@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    overflow: hidden;
+}
+
+#kamui-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+#kamui-mask-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+#kamui-mask {
+    width: 300px;
+    height: auto;
+    opacity: 0;
+    animation: mask-appear 2s forwards;
+}
+
+#kamui-eye {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: eye-appear 2s forwards 2s; /* Delay da animação da máscara */
+}
+
+#eye {
+    width: 150px;
+    height: auto;
+    animation: eye-sharingan 1.5s forwards 2.5s; /* Abertura do olho */
+}
+
+#kamui-game-container {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    opacity: 0;
+    animation: icons-appear 2s forwards 3.5s; /* Os ícones vão aparecer depois do olho */
+}
+
+.game-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0;
+    animation: icon-appear 1s forwards;
+}
+
+.game-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes mask-appear {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes eye-appear {
+    0% { opacity: 0; transform: scale(0); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes eye-sharingan {
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes icons-appear {
+    0% { opacity: 0; transform: translateY(100px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes icon-appear {
+    0% { opacity: 0; transform: scale(0); }
+    100% { opacity: 1; transform: scale(1); }
+}
